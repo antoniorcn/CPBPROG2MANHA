@@ -1,0 +1,11 @@
+.topico { color:Red; }
+.texto { font-size : 120%;}
+p[meuattr] { color:Green;} 
+h1::before {content : "comentario h1";
+			font-size : 10%;}
+h1:hover {font-size : 220%;
+			color:Pink;}
+h2+p {color:Blue;}
+h2~h2 {color:yellow;}
+#p2 { font-style: italic;}
+p {font-family : "Times New Roman", Times, serif, Sans-serif}
