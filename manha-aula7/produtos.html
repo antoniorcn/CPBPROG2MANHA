@@ -1,0 +1,75 @@
+<html>
+
+	<head>
+		<link href="./css/bootstrap.min.css" rel="stylesheet"/>
+	</head>
+	
+	<body>
+		<h1>Gestão de Produtos Alimenticios</h1>
+		
+		<form>
+			<div class="container">	
+				<div class="form-group">
+					<label for="txtNome">Nome:</label>
+					<input id="txtNome" type="text" class="form-control"/>
+				</div>
+				
+				<div class="form-group">
+					<label for="txtMetrica">Metrica:</label>
+					<select id="txtMetrica" class="form-control">
+						<option>Litro</option>
+						<option>Metro</option>
+						<option>Unidade</option>
+						<option>Kilo</option>
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<label for="txtQtd">Quantidade:</label>
+					<input id="txtQtd" type="number" class="form-control"/>
+				</div>
+				
+				<div class="form-group">
+					<label for="txtPreco">Preço Unitário:</label>
+					<input id="txtPreco" type="number" class="form-control"/>
+				</div>		
+				<div class="form-group">
+					<label>Vitaminas</label>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" 
+							   name="txtVitaminas" id="txtVitaminaA" value="A">
+						<label class="form-check-label" for="txtVitaminaA">A</label>
+					</div>				
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" 
+							   name="txtVitaminas" id="txtVitaminaB" value="B">
+						<label class="form-check-label" for="txtVitaminaB">B</label>
+					</div>				
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" 
+							   name="txtVitaminas" id="txtVitaminaC" value="C">
+						<label class="form-check-label" for="txtVitaminaC">C</label>
+					</div>								
+				</div>
+				<div class="form-group">
+					<label>Organico</label>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" 
+							   name="txtOrganico" id="txtOrgSim" value="sim">
+						<label class="form-check-label" for="txtOrgSim">Sim</label>
+					</div>				
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" 
+							   name="txtOrganico" id="txtOrgNao" value="nao" checked>
+						<label class="form-check-label" for="txtOrgNao">Não</label>
+					</div>				
+				</div>				
+				
+				
+				<button type="button" class="btn btn-secondary">Adicionar</button>
+			</div>
+		
+		</form>
+	</body>
+
+</html>
