@@ -1,0 +1,25 @@
+<html>
+	<body>
+		<h1>Teste de Javascript</h1>
+		
+		
+		<p id="p1">Paragrafo 1</p>
+		<p id="p2">Paragrafo 2</p>
+		<!-- <script type="text/javascript">
+			document.write("Texto escrito pelo JS");
+		</script> -->
+		
+		<!-- <script src="./codigo1.js" type="text/javascript"></script> -->
+		<!-- <script src="./codigo2.js" type="text/javascript"></script> -->
+		
+		<script>
+			var p = document.getElementById("p1");
+			var texto = "";
+			for (var i = 1; i <= 10; i++) { 
+				texto += ", " + i;
+			}
+			p.innerHTML = texto;
+		</script>
+		
+	</body>
+</html>
