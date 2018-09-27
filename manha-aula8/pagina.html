@@ -5,8 +5,18 @@
       <p id="p2" onclick="mudarParagrafo();">Meu segundo paragrafo</p>
       <p id="p3" onclick="insereTabuada();">Meu terceiro paragrafo</p>
 
+      <img id="img1"></img>
+
       <script type="text/javascript" src="./codigo.js"></script>
 
       <button type="button" onclick="resetar();">Resetar</button>
+      <button type="button" onclick="carregarImagem();">Carregar Imagem</button>
+
+      <script>
+          function carregarImagem() {
+            var img = document.getElementById("img1");
+            img.src = "file://C:/temp/ps/PrestaShop/img/prestashop-avatar.png";
+          }
+      </script>
   </body>
 </html>
