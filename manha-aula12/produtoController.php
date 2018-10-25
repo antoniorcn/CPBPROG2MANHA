@@ -3,7 +3,7 @@
 
 		$nome = $_REQUEST['txtNome'];
 		$button = $_REQUEST['txtButton'];
-
+		session_start();
 		if ($button == "adicionar") {
 			$qtd = $_REQUEST['txtQtd'];
 			$metrica = $_REQUEST['txtMetrica'];
@@ -23,9 +23,20 @@
 			$stmt->bindValue(':org', $org, PDO::PARAM_STR);
 			$stmt->execute();
 			$result = $stmt->rowCount();
+			$_SESSION['MENSAGEM'] = 'Registro inserido com sucesso';
 		} else if ($button == "pesquisar") {
-			$sql = "SELECT * FROM produtos";
-			$stmt = $db->query($sql);
+			$sql = "SELECT * FROM produtos WHERE nome like :nome";
+			$stmt = $db->prepare($sql);
+			$stmt->bindValue(':nome', '%' . $nome . '%', PDO::PARAM_STR);
+			$stmt->execute();
+			$result = $stmt->rowCount();
+			echo "Foram encontrados $result produtos";
+			$listaProdutos = array();
+			/* Escreve resultados até que não haja mais linhas na tabela usando while*/
+			forEach( $stmt as $row ) {
+				array_push($listaProdutos, $row);
+			}
+			$_SESSION['LISTA'] = $listaProdutos;
 		}
-		header('Location: ./produtos.html');
+		header('Location: ./produtos.php');
 ?>

@@ -11,6 +11,18 @@
 	<body>
 		<h1>Gestão de Produtos Alimenticios</h1>
 
+		<?php
+			session_start();
+			if (isset($_SESSION['MENSAGEM'])) {
+					echo $_SESSION['MENSAGEM'];
+					unset($_SESSION['MENSAGEM']);
+			}
+			$lista = array();
+			if (isset($_SESSION['LISTA'])) {
+				$lista = $_SESSION['LISTA'];
+			}
+		 ?>
+
 		<form action="./produtoController.php">
 			<div class="container">
 				<div class="form-group">
@@ -87,30 +99,20 @@
 						</tr>
 					</thead>
 					<tbody>
+						<?php
+							foreach ($lista as $linha) {
+						?>
 						<tr>
-							<td>Maça</td>
-							<td>Unidade</td>
-							<td>10</td>
-							<td>1.00</td>
-							<td>B, E</td>
-							<td>Sim</td>
+							<td><?=$linha['nome']?></td>
+							<td><?=$linha['metrica']?></td>
+							<td><?=$linha['quantidade']?></td>
+							<td><?=$linha['preco']?></td>
+							<td><?=$linha['vitaminas']?></td>
+							<td><?=$linha['organico']?></td>
 						</tr>
-						<tr>
-							<td>Goiaba</td>
-							<td>Unidade</td>
-							<td>1</td>
-							<td>1.50</td>
-							<td>C, E</td>
-							<td>Sim</td>
-						</tr>
-						<tr>
-							<td>Coca Cola de Café</td>
-							<td>Unidade</td>
-							<td>15</td>
-							<td>6.00</td>
-							<td>Nenhuma</td>
-							<td>Não</td>
-						</tr>
+						<?php
+							}
+						?>
 					</tbody>
 				</table>
 			</div>
