@@ -19,6 +19,17 @@ show tables;
 
 desc animais;
 
+INSERT INTO animais (id, nome, raca)
+	VALUES (0, 'Rex', 'Vira-Lata');
+
+
+SELECT id, nome, raca FROM animais;
+
+
+
+
+
+
 INSERT INTO animais (id, nome, raca, nascimento, nome_dono, peso) VALUES (1, 'Sita', 'Calopsita', '2017-01-01', 'Antonio', 0.1);
 
 INSERT INTO animais (id, nome, raca, nascimento, nome_dono, peso) VALUES (2, 'Koda', 'Gato vira lata', '2017-01-01', 'Antonio', 2.0);
