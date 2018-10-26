@@ -21,7 +21,17 @@
     $db->exec($sql);
     $_SESSION['MENSAGEM'] = "Animal inserido com sucesso";
   } else if ($cmd == "pesquisar") {
-    $_SESSION['MENSAGEM'] = "Nenhum animal foi encontrado";
+    $sql = "SELECT * FROM animais WHERE nome like '%$nome_cachorro%'";
+    $stmt = $db->query($sql);
+    $lista = array();
+    $_SESSION['MENSAGEM'] = "Foram encontrados ".$stmt->rowCount()." resultados";
+    forEach( $stmt as $row ) {
+      array_push($lista, $row);
+    }
+    $_SESSION['LISTA'] = $lista;
+//    	echo $row['id']." - " .$row['titulo']."<BR/>";
+//    }
+
   }
   header("Location: ./pets.php");
 ?>

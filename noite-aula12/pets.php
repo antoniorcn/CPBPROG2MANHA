@@ -20,10 +20,14 @@
 					echo $_SESSION['MENSAGEM'];
 					unset($_SESSION['MENSAGEM']);
 			}
+			$lista_pets = array();
+			if (isset($_SESSION['LISTA'])) {
+					$lista_pets = $_SESSION['LISTA'];
+			}
 
 		?>
 
-		<form action="./petshop_processa.php">
+		<form action="./petshopController.php">
 			<div class="container">
 				<div class="form-group">
 					<label class="form-label" for="txtNome">Nome</label>
@@ -53,6 +57,31 @@
         </div>
 				<button class="btn btn-primary" type="submit" name="cmd" value="adicionar">Adicionar</button>
 				<button class="btn btn-primary" type="submit" name="cmd" value="pesquisar">Pesquisar</button>
+			</div>
+			<hr/>
+			<div class="container">
+				<table class="table">
+						<tr>
+								<th>Id</th>
+								<th>Nome</th>
+								<th>Raca</th>
+								<th>Nascimento</th>
+								<th>Nome do Dono</th>
+								<th>Peso</th>
+						</tr>
+						<?php
+							foreach($lista_pets as $pet) {
+						 ?>
+							<tr>
+									<td><?=$pet['id']?></td>
+									<td><?=$pet['nome']?></td>
+									<td><?=$pet['raca']?></td>
+									<td><?=$pet['nascimento']?></td>
+									<td><?=$pet['nome_dono']?></td>
+									<td><?=$pet['peso']?></td>
+							</tr>
+						<?php } ?>
+				</table>
 			</div>
 		</form>
 	</body>
